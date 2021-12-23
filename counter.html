@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            height: 1500px;
+        }
+
+        .counter {
+            display: flex;
+            width: 1000px;
+            justify-content: space-around;
+            margin: auto;
+            position: absolute;
+            top: 1000px;
+            left: calc(50% - 500px);
+        }
+
+        .counter p {
+            text-align: center;
+            width: 200px;
+            height: 100px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter" id="counter">
+        <p class="count" data-value='200'>0</p>
+        <p class="count" data-value='300'>0</p>
+        <p class="count" data-value='400'>0</p>
+    </div>
+    <script>
+
+        window.onscroll = function () {
+            if (window.scrollY >= (counter.offsetTop - 300)) {
+                let counts = document.getElementsByClassName("count");
+                for (let i = 0; i < counts.length; i++) {
+                    let interval = setInterval(function () {
+                        if (counts[i].innerText == counts[i].getAttribute("data-value")) {
+                            clearInterval(interval);
+                            return;
+                        }
+                        counts[i].innerText++
+
+                    }, 10000 / counts[i].getAttribute("data-value"));
+
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

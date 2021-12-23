@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading</title>
+</head>
+<style>
+    #dots_loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #080
+    }
+</style>
+
+<body>
+    <div id="dots_loading">
+        <h1>Loading <span id="dots">. . .</span></h1>
+        
+    </div>
+    <script>
+
+        let interval = setInterval(function () {
+            if (dots.innerText == ". . .") {
+                dots.innerText = " "
+            }
+            dots.innerText += ' .'
+        }, 1000)
+        setTimeout(function () {
+            clearInterval(interval);
+        }, 9000);
+
+
+    </script>
+</body>
+
+</html>

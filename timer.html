@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+    .timer {
+        text-align: center;
+        padding-top: 300px;
+    }
+</style>
+
+<body>
+    <div class="timer">
+        <span id="hours">00</span> :
+        <span id="minutes">00</span> :
+        <span id="secondes">00</span><br>
+        <button id="toggle">Start</button>
+    </div>
+    <script>
+        // parset int for convert string to number 
+        // time for pass params or arguments or variables 
+        function fix(time) {
+            if (parseInt(time.innerText) < 9) {
+                time.innerText = '0' + (parseInt(time.innerText) + 1)
+            } else {
+                time.innerText = (parseInt(time.innerText) + 1)
+            }
+        }
+        let interval = null;
+        toggle.onclick = function () {
+            if(interval == null){
+                this.innerText = 'Stop';
+                interval = setInterval(function () {
+                    fix(secondes);
+                    if (secondes.innerText == 60) {
+                        secondes.innerText = 00;
+                        fix(minutes);
+                    }
+                    if (minutes.innerText == 60) {
+                        minutes.innerText = 00;
+                        fix(hours);
+                    }
+                })
+            }else{
+                this.innerText = 'Start';
+                clearInterval(interval);
+                interval = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

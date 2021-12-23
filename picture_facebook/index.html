@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add member</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <body>
+        <div id="outlay" class="outlay"><img id="main_image"><span id="exit" class="icon">X</span></div>
+        <section class="header">
+             <div class="image">
+                    <img src="images/img.jpg" alt="">
+                </div>
+                <div class="card">
+                    <img src="images/238838963_215733763898801_2605455890729093036_n.jpg" alt="">
+                </div>
+               
+                <div class="text">
+                    <h1>Hema Elfakhrany</h1>
+                </div>
+        </section>
+        <div id="posts" class="posts">
+            <div class="post">
+                <div class="post-header">
+                    <img src="images/238838963_215733763898801_2605455890729093036_n.jpg" alt="">
+                    <div class="name-date">
+                        <h4 class="name">إبراهيم الفخراني</h4>
+                        <span class="date">27 أبريل</span>
+                    </div>
+                    <span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+                </div>
+                <div class="post-content">
+                    <p class="text">من سيسجل هدف هو الأغلى فـ تاريخ الديربي؟</p>
+                    <img src="images/238838963_215733763898801_2605455890729093036_n.jpg" alt="">
+                    <div class="controllers">
+                        <button>أعجبنى</button>
+                        <button class="btn-comment">تعليق</button>
+                        <button>مشاركة</button>
+                    </div>
+                    <form action="">
+                        <input type="text" name="comment" class="input-comment" placeholder="أكتب تعليقا ...">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <script>
+
+
+            for(let i=0; i<20; i++ ){
+                posts.innerHTML += `  <div class="post">
+                <div class="post-header">
+                    <img src="images/238838963_215733763898801_2605455890729093036_n.jpg" alt="">
+                    <div class="name-date">
+                        <h4 class="name">إبراهيم الفخراني</h4>
+                        <span class="date">27 أبريل</span>
+                    </div>
+                    <span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+                </div>
+                <div class="post-content">
+                    <p class="text">من سيسجل هدف هو الأغلى فـ تاريخ الديربي؟</p>
+                    <img src="images/238838963_215733763898801_2605455890729093036_n.jpg" alt="">
+                    <div class="controllers">
+                        <button>أعجبنى</button>
+                        <button class="btn-comment">تعليق</button>
+                        <button>مشاركة</button>
+                    </div>
+                    <form action="">
+                        <input type="text" name="comment" class="input-comment" placeholder="أكتب تعليقا ...">
+                    </form>
+                </div>
+            </div>`
+            }
+            let btn_comment = document.querySelectorAll(".btn-comment");
+            for(let x=0; x<btn_comment.length; x++){
+
+                btn_comment[x].onclick = function(){
+                    this.parentElement.nextElementSibling.children[0].focus()
+                }
+            }
+            let images = document.querySelectorAll("img");
+            for (let i = 1; i < images.length; i++) {
+                images[i].onclick = function(){
+                    outlay.style.display = "flex";
+                    main_image.src=images[i].src
+                }
+            }
+            exit.onclick = function(){
+                outlay.style.display= "none"
+            }
+        </script>
+    </body>
+</html>

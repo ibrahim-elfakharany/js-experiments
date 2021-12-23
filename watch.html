@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .watches {
+        width: 300px;
+        margin: 200px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #555;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+
+    #main_image {
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+        vertical-align: middle;
+        margin: 0 10px;
+        border-radius: 20px;
+        border: 2px solid #555;
+
+    }
+
+    button {
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        color: #777;
+        background-color: #efefef;
+        border: none;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <div class="watches">
+        <div class="images">
+            <img src="images/48.jfif" alt="">
+            <img src="images/47.jpg" alt="">
+            <img src="images/49.jfif" alt="">
+            <img src="images/50.jfif" alt="">
+
+        </div>
+        <div class="main-image">
+            <button id="prev" data-status="0"> &lt; </button>
+
+            <img src="images/48.jfif" alt="" id="main_image">
+
+            <button id="next" data-status="1"> &gt; </button>
+        </div>
+    </div>
+    <script>
+        // watches.forEach((watch) => {
+        //     watch.onclick = function () {
+        //         main_image.src = this.src
+        //     }
+        // })
+        let watches = document.querySelectorAll(".images img");
+        increment = 1;
+        num = 1;
+        for (let i = 0; i < watches.length; i++) {
+            watches[i].setAttribute('data-index', increment);
+            watches[i].onclick = function () {
+                main_image.src = this.src;
+                num = this.getAttribute('data-index');
+            }
+            increment++;
+        }
+
+        next.onclick = function () {
+            prev.setAttribute('data-status', 0);
+            if (next.getAttribute('data-status') == 0) {
+                num++;
+                next.setAttribute('data-status', 1)
+            }
+            if (watches.length == num) {
+                num = 0;
+            }
+            main_image.src = watches[num].src;
+            num++;
+        }
+        prev.onclick = function () {
+            next.setAttribute('data-status', 0);
+            if (prev.getAttribute('data-status') == 0) {
+                num--;
+                prev.setAttribute('data-status', 1)
+            }
+            if (num == 0) {
+                num = watches.length;
+            }
+            num--;
+            main_image.src = watches[num].src;
+        }
+    </script>
+</body>
+
+</html>
